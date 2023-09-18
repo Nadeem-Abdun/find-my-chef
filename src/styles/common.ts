@@ -9,7 +9,8 @@ export interface StylesProps {
 }
 
 export const useStyles = makeStyles<Theme, StylesProps>(() => ({
-    // Navbar Styless
+
+    // Navbar Styles
     navLinks: {
         marginRight: theme.spacing(2),
         ...(theme.breakpoints.up('sm') && {
@@ -21,7 +22,7 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
         paddingLeft: theme.spacing(1),
         paddingRight: theme.spacing(1),
         color: '#8B4513',
-        fontWeight: 600,
+        fontWeight: 700,
         textDecoration: 'none',
         '&:hover': {
             textDecoration: 'underline',
@@ -41,10 +42,14 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
             width: 120,
         }),
     },
+
     // Banner Styles
     bannerText: {
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(3px)',
+        padding: '2px',
         color: '#8B4513',
-        textShadow: '3px 3px #ffffff',
+        textShadow: '2px 2px #ffffff',
     },
 
     // Job Category

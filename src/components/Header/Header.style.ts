@@ -1,12 +1,15 @@
-import { styled } from '@mui/system';
-import { Typography } from '@mui/material'
+// import { styled } from '@mui/system';
+import { Typography, Box } from '@mui/material'
+import styled from 'styled-components';
 
+// export const NavPaddingX = styled(Box)`
+//   ${({ theme }) => theme.breakpoints.only("lg")}{
+//     padding-left: ${({theme})=>theme.spacing(1)}px;
+//     padding-right: '8px';
+//   }
+// `
 
-export const NavLinkText = styled(Typography)({
-  marginRight: '16px',
-  color: '#8B4513',
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'underline',
-  },
-});
+export const NavPaddingX = styled(Box)({
+  paddingLeft: '12px',
+  paddingRight: '12px',
+})
