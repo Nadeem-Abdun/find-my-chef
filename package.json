@@ -1,6 +1,5 @@
 {
   "name": "find-my-chef",
-  "homepage": "https://Nadeem-Abdun.github.io/find-my-chef",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +15,6 @@
     "@types/node": "^16.18.38",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
@@ -28,8 +26,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
