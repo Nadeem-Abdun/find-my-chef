@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, ListItem, ListItemText, SvgIcon, Box } from '@mui/material';
+import { Typography, Grid, ListItem, ListItemText } from '@mui/material';
 import { useStyles, StylesProps } from '../../styles/common';
 
 const categories = [
@@ -23,32 +23,38 @@ const categories = [
         name: 'Idly Maker (Specialist)',
         count: 47
     },
+    {
+        id: 5,
+        name: 'Chinese',
+        count: 47
+    },
 ];
 
 const JobCategory = () => {
+
     const commonStyles = useStyles({} as StylesProps);
+
     return (
-        <Box sx={{ width: '100%' }}>
-            <Typography variant="h4" component="h4" sx={{ display: 'flex', alignItems: 'center'}}>
-                <SvgIcon viewBox="0 0 24 24" sx={{ mr: 1 }}>
-                    <path d="M17,10 L3,10 M21,6 L3,6 M21,14 L3,14 M17,18 L3,18" />
-                </SvgIcon>
-                <h3>Job Category</h3>
-            </Typography>
-            <Grid container spacing={2}>
+        <Grid container justifyContent='flex-start' alignItems='center'>
+            <Grid item>
+                <Typography variant="h4" fontWeight='bold'>
+                    Chef's Category
+                </Typography>
+            </Grid>
+            <Grid container item justifyContent='flex-start' alignItems='flex-start'>
                 {categories.map((category) => (
                     <Grid item xs={12} sm={6} md={4} key={category.id}>
                         <ListItem
                             component="a"
-                            href={`/CIS/Candidates/${category.id}`}
-                            className="job-category-item"
+                            // href={`/CIS/Candidates/${category.id}`}
+                            href={`/find-my-chef/`}
                         >
                             <ListItemText className={commonStyles.jobCategoryItem} primary={category.name} secondary={`(${category.count})`} />
                         </ListItem>
                     </Grid>
                 ))}
             </Grid>
-        </Box>
+        </Grid>
     );
 };
 

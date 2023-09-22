@@ -13,12 +13,12 @@ const Home: React.FC = () => {
         <Grid item xs={12} sm={12} md={12}>
           <Banner />
         </Grid>
-        <Grid item xs={12} sm={10} md={8}>
-          <JobCategory />
-        </Grid>
-        <Grid item xs={12} sm={10} md={8}>
+        <Grid item xs={12} sm={10} md={9}>
           <h1>Welcome to the Home Page</h1>
           <p>This is the content of the Home page.</p>
+        </Grid>
+        <Grid item xs={12} sm={10} md={9}>
+          <JobCategory />
         </Grid>
       </Grid>
       <Footer />

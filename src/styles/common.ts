@@ -81,6 +81,9 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
     },
     socialMediaIcon: {
         color: theme.palette.common.white,
+        '&:hover': {
+            color: '#1877f2',
+        },
     },
     footerBottom: {
         marginTop: theme.spacing(2),
