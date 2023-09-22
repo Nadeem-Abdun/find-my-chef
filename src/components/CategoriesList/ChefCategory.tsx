@@ -30,7 +30,7 @@ const categories = [
     },
 ];
 
-const JobCategory = () => {
+const ChefCategory = () => {
 
     const commonStyles = useStyles({} as StylesProps);
 
@@ -58,4 +58,4 @@ const JobCategory = () => {
     );
 };
 
-export default JobCategory;
+export default ChefCategory;
