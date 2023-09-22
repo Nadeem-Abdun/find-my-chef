@@ -35,13 +35,15 @@ const ChefCategory = () => {
     const commonStyles = useStyles({} as StylesProps);
 
     return (
-        <Grid container justifyContent='flex-start' alignItems='center'>
-            <Grid item>
-                <Typography variant="h4" fontWeight='bold'>
-                    Chef's Category
-                </Typography>
+        <Grid container justifyContent='flex-start' alignItems='center' spacing={2}>
+            <Grid container item justifyContent='center' alignItems='center'>
+                <Grid item>
+                    <Typography variant="h4" fontWeight='bold' color='#515666' fontFamily='Fira Sans'>
+                        Chef's Category
+                    </Typography>
+                </Grid>
             </Grid>
-            <Grid container item justifyContent='flex-start' alignItems='flex-start'>
+            <Grid container item justifyContent='flex-start' alignItems='center'>
                 {categories.map((category) => (
                     <Grid item xs={12} sm={6} md={4} key={category.id}>
                         <ListItem

@@ -63,6 +63,22 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
         },
     },
 
+    // Platform Demo
+    PlatformCardShadow: {
+        '&.css-bhp9pd-MuiPaper-root-MuiCard-root': {
+            boxShadow: '0 0 30px rgba(0, 0, 0, .15)',
+        }
+    },
+
+    PlatformCardTopBottomMarginXs: {
+        '&.MuiGrid-root': {
+            [theme.breakpoints.down('sm')]: {
+                marginTop: theme.spacing(1),
+                marginBottom: theme.spacing(1),
+            },
+        }
+    },
+
     // Footer Styles
     footer: {
         backgroundColor: '#8B4513',
