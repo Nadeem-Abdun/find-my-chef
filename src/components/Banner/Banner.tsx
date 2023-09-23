@@ -38,11 +38,11 @@ const Banner = () => {
                     <div key={index} style={{ height: '100vh', width: '100%' }}>
                         <img src={image} alt={`Banner ${index + 1}`} style={{ height: '100%', width: '100%', objectFit: 'fill' }} />
                         <div style={{ position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff', }}>
-                            <Typography component={(isXs || isSm) ? 'div' : 'span'} variant={(isXs) ? "h3" : (isSm || isMd) ? "h2" : "h1"} noWrap={(isXs) ? false : true} className={commonStyles.bannerText}>
+                            <Typography component={(isXs || isSm) ? 'div' : 'span'} variant={(isXs) ? "h3" : (isSm || isMd) ? "h2" : "h1"} noWrap={(isXs) ? false : true} fontFamily='Fira Sans' className={commonStyles.bannerText}>
                                 Find My Chef
                             </Typography>
                             <br />
-                            <Typography component={(isXs || isSm) ? 'div' : 'span'} variant={(isXs) ? "h6" : (isSm || isMd) ? "h5" : "h4"} noWrap={(isXs || isSm) ? false : true} className={commonStyles.bannerText}>
+                            <Typography component={(isXs || isSm) ? 'div' : 'span'} variant={(isXs) ? "h6" : (isSm || isMd) ? "h5" : "h4"} noWrap={(isXs || isSm) ? false : true} fontFamily='Fira Sans' className={commonStyles.bannerText}>
                                 Your ultimate destination for connecting aspiring chefs with their desired positions.
                             </Typography>
                         </div>

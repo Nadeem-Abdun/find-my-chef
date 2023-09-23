@@ -17,7 +17,7 @@ const Home: React.FC = () => {
         </Grid>
         <Grid item xs={12} sm={10} md={11}>
           <Typography variant='h4' fontWeight='bold' color='#515666' fontFamily='Fira Sans' textAlign='center'>Welcome to the Home Page</Typography>
-          <Typography variant='body1' textAlign='center'>The below is the content of Home page.</Typography>
+          <Typography variant='body1' textAlign='center' fontFamily='Fira Sans'>The below is the content of Home page.</Typography>
         </Grid>
         <Grid item xs={12} sm={10} md={11}>
           <PlatformDemo />
