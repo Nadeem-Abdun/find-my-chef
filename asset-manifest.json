@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/find-my-chef/static/css/main.8d54c2d8.css",
-    "main.js": "/find-my-chef/static/js/main.2a1a379b.js",
+    "main.js": "/find-my-chef/static/js/main.867d1514.js",
     "static/js/787.128136ff.chunk.js": "/find-my-chef/static/js/787.128136ff.chunk.js",
     "static/media/Image2.png": "/find-my-chef/static/media/Image2.def2e7bd44813d24f0ef.png",
     "static/media/Image3.png": "/find-my-chef/static/media/Image3.006a8ac730daf626c965.png",
@@ -9,11 +9,11 @@
     "static/media/HeaderNavLogo.png": "/find-my-chef/static/media/HeaderNavLogo.f796b4f86a0b2cb06f7e.png",
     "index.html": "/find-my-chef/index.html",
     "main.8d54c2d8.css.map": "/find-my-chef/static/css/main.8d54c2d8.css.map",
-    "main.2a1a379b.js.map": "/find-my-chef/static/js/main.2a1a379b.js.map",
+    "main.867d1514.js.map": "/find-my-chef/static/js/main.867d1514.js.map",
     "787.128136ff.chunk.js.map": "/find-my-chef/static/js/787.128136ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8d54c2d8.css",
-    "static/js/main.2a1a379b.js"
+    "static/js/main.867d1514.js"
   ]
 }
