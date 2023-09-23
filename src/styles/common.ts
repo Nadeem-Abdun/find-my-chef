@@ -21,7 +21,7 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
     navLink: {
         paddingLeft: theme.spacing(1),
         paddingRight: theme.spacing(1),
-        color: '#8B4513',
+        color: '#8b0d32',
         fontWeight: 700,
         textDecoration: 'none',
         '&:hover': {
@@ -48,16 +48,17 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(3px)',
         padding: '2px',
-        color: '#8B4513',
+        color: '#8b0d32',
         textShadow: '2px 2px #ffffff',
     },
 
     // Job Category
     jobCategoryItem: {
         marginBottom: '8px',
+        fontFamily: 'Fira Sans',
         textDecoration: 'none',
         color: '#28282B',
-        fontWeight: 'bold',
+        fontWeight: '600',
         '&:hover': {
             color: '#000000',
         },
@@ -66,7 +67,7 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
     // Platform Demo
     PlatformCardShadow: {
         '&.css-bhp9pd-MuiPaper-root-MuiCard-root': {
-            boxShadow: '0 0 30px rgba(0, 0, 0, .15)',
+            boxShadow: '0 0 30px rgba(139, 13, 50, 0.5)',
         }
     },
 
@@ -81,7 +82,7 @@ export const useStyles = makeStyles<Theme, StylesProps>(() => ({
 
     // Footer Styles
     footer: {
-        backgroundColor: '#8B4513',
+        backgroundColor: '#8b0d32',
         color: theme.palette.common.white,
         padding: theme.spacing(4),
         [theme.breakpoints.down('sm')]: {

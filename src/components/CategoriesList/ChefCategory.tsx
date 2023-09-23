@@ -25,7 +25,7 @@ const categories = [
     },
     {
         id: 5,
-        name: 'Chinese',
+        name: 'Chinese (Fast Foods)',
         count: 47
     },
 ];
