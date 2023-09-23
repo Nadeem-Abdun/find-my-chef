@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                             Find My Chef Solutions Pvt. Ltd.
                         </Typography>
                         <Typography variant="body2" fontFamily='Fira Sans'>
-                            A dedicated platform connecting job seekers with opportunities in the restaurant, hotel, cloud kitchen, cafe, and food outlet industry, making it easy for both job seekers and owners to find the perfect match.
+                            A dedicated platform connects job seekers with opportunities in the restaurant, hotel, cloud kitchen, cafe, and food outlet industries, making it easy for both job seekers and owners to find the perfect match.
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
