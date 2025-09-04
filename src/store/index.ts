@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
 import {
   FLUSH,
   PAUSE,
@@ -8,6 +9,7 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
+  type PersistConfig,
 } from 'redux-persist';
 import { useDispatch, useSelector, type TypedUseSelectorHook } from 'react-redux';
 
@@ -18,7 +20,7 @@ import applicationsReducer from './slices/applicationsSlice';
 import favoritesReducer from './slices/favoritesSlice';
 import uiReducer from './slices/uiSlice';
 
-import { rootPersistConfig } from './persist';
+import { STORAGE_ROOT_KEY } from './persist';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -28,6 +30,13 @@ const rootReducer = combineReducers({
   favorites: favoritesReducer,
   ui: uiReducer,
 });
+
+const rootPersistConfig: PersistConfig<ReturnType<typeof rootReducer>> = {
+  key: STORAGE_ROOT_KEY,
+  version: 1,
+  storage,
+  whitelist: ['auth', 'jobs', 'applications', 'favorites', 'ui'],
+};
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
