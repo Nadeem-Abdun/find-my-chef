@@ -37,15 +37,15 @@ const Header: React.FC = () => {
                         <img src={HeaderNavLogo} alt="Logo" className={commonStyles.logo} />
                     </Grid>
                     <Grid item>
-                        <Grid container spacing={(isXs || isSm) ? 1 : 2} justifyContent={(isXs || isSm) ? 'flex-end' : 'flex-start'} wrap={(isXs || isSm) ? 'wrap' : 'nowrap'}>
+                        <Grid container item spacing={(isXs || isSm) ? 1 : 2} justifyContent={(isXs || isSm) ? 'flex-end' : 'flex-start'} wrap={(isXs || isSm) ? 'wrap' : 'nowrap'}>
                             <Grid item>
-                                <Typography variant="h6" fontWeight='bold' component={Link} to="/" className={commonStyles.navLink}>Home</Typography>
+                                <Typography variant="h6" fontWeight='bold' component={Link} to="/" fontFamily='Fira Sans' className={commonStyles.navLink}>Home</Typography>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6" fontWeight='bold' component={Link} to="/about" className={commonStyles.navLink}>About Us</Typography>
+                                <Typography variant="h6" fontWeight='bold' component={Link} to="/about" fontFamily='Fira Sans' className={commonStyles.navLink}>About Us</Typography>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6" fontWeight='bold' component={Link} to="/contact" className={commonStyles.navLink}>Contact Us</Typography>
+                                <Typography variant="h6" fontWeight='bold' component={Link} to="/contact" fontFamily='Fira Sans' className={commonStyles.navLink}>Contact Us</Typography>
                             </Grid>
                         </Grid>
                     </Grid>

@@ -1,28 +1,34 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Banner from '../../components/Banner/Banner';
-import JobCategory from '../../components/CategoriesList/JobCategory';
+import ChefCategory from '../../components/CategoriesList/ChefCategory';
+import PlatformDemo from '../../components/PlatformDemo/PlatformDemo';
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <>
       <Header />
-      <Grid container justifyContent="center" alignItems='center'>
+
+      <Grid container justifyContent="center" alignItems='center' spacing={2}>
         <Grid item xs={12} sm={12} md={12}>
           <Banner />
         </Grid>
-        <Grid item xs={12} sm={10} md={8}>
-          <JobCategory />
+        <Grid item xs={12} sm={10} md={11}>
+          <Typography variant='h4' fontWeight='bold' color='#515666' fontFamily='Fira Sans' textAlign='center'>Welcome to the Home Page</Typography>
+          <Typography variant='body1' textAlign='center' fontFamily='Fira Sans'>The below is the content of Home page.</Typography>
         </Grid>
-        <Grid item xs={12} sm={10} md={8}>
-          <h1>Welcome to the Home Page</h1>
-          <p>This is the content of the Home page.</p>
+        <Grid item xs={12} sm={10} md={11}>
+          <PlatformDemo />
+        </Grid>
+        <Grid item xs={12} sm={10} md={11}>
+          <ChefCategory />
         </Grid>
       </Grid>
+
       <Footer />
-    </div>
+    </>
   );
 };
 
