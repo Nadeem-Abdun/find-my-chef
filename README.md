@@ -1,46 +1,116 @@
-# Getting Started with Create React App
+# Find My Chef
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A frontend-only showcase of a niche job portal connecting chefs with restaurants, hotels, cloud kitchens, cafes and food outlets across India.
 
-## Available Scripts
+> Live: https://Nadeem-Abdun.github.io/find-my-chef/
 
-In the project directory, you can run:
+## Tech stack
 
-### `npm start`
+- **Build**: Vite 6 + TypeScript 5.7
+- **UI**: React 19, Tailwind CSS 4, shadcn/ui (new-york style), Radix primitives, lucide-react icons
+- **Fonts**: Inter (UI) + Fraunces Variable (display)
+- **State**: Redux Toolkit + redux-persist (selective whitelist)
+- **Forms**: react-hook-form + zod
+- **Carousel**: embla-carousel-react (via shadcn `Carousel`)
+- **Notifications**: sonner
+- **Quality**: ESLint 9 (flat config), Prettier 3, Husky + lint-staged
+- **Tests**: Vitest + @testing-library/react
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Quick start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm install
+npm run dev
+```
 
-### `npm test`
+Open http://localhost:5173.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo accounts
 
-### `npm run build`
+| Email             | Password   | Role  |
+| ----------------- | ---------- | ----- |
+| `owner@demo.com`  | `demo1234` | owner |
+| `chef@demo.com`   | `demo1234` | chef  |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Scripts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Command           | What it does                                         |
+| ----------------- | ---------------------------------------------------- |
+| `npm run dev`     | Vite dev server with HMR (port 5173)                 |
+| `npm run build`   | Type-check + production build to `dist/`             |
+| `npm run preview` | Preview the production build locally                 |
+| `npm run lint`    | ESLint across `src/`                                 |
+| `npm run lint:fix`| ESLint with auto-fix                                 |
+| `npm run format`  | Prettier write across the repo                       |
+| `npm run test`    | Vitest                                               |
+| `npm run type-check` | `tsc --noEmit` only                              |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Architecture overview
 
-### `npm run eject`
+### Data layer (frontend-only)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+src/data/seed/        Pure typed seed arrays (chefs, jobs, categories, …)
+src/services/mockApi/ Promise-based API stubs with simulated latency
+src/store/slices/     Redux Toolkit slices using createAsyncThunk
+src/store/selectors/  Memoized selectors via reselect
+src/store/persist.ts  redux-persist whitelist (auth, jobs.userItems, applications, favorites, ui)
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User-generated data (registrations, posted jobs, applications, saved items) is persisted to `localStorage` and survives full page reloads.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To clear all client data, click **Reset demo data** in the footer.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Routing
 
-## Learn More
+- Wrapped in `<MainLayout />` (`Header`, `<Outlet />`, `Footer`) with `ScrollRestoration`.
+- Lazy-loaded routes via `React.lazy` + `Suspense`.
+- `BrowserRouter` `basename` is set to `import.meta.env.BASE_URL` so dev (`/`) and prod (`/find-my-chef/`) both work.
+- Protected `/dashboard` route via `ProtectedRoute`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Theming
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`ThemeProvider` toggles `data-theme="dark"` on `<html>`. CSS variables in `src/index.css` define the **Bistro** palette (sage + burnt amber on warm cream / espresso). Tailwind 4's `@theme inline` block maps them to design tokens consumed by shadcn components.
+
+### Mobile
+
+- Mobile-first layout, `react-responsive` for finer logic, sheet-based mobile nav and filter drawers.
+- Safe-area insets and `prefers-reduced-motion` respected.
+
+## Deployment to GitHub Pages
+
+1. Push to `main` — GitHub Actions runs `.github/workflows/deploy.yml`:
+   - `npm ci → npm run lint → npm run build`
+   - Uploads `dist/` as a Pages artifact
+   - Deploys via `actions/deploy-pages@v4`
+2. In your repo settings: **Pages → Build and deployment → Source = GitHub Actions**.
+3. SPA deep-link fallback: `public/404.html` uses the [spa-github-pages](https://github.com/rafgraph/spa-github-pages) trick to bounce deep URLs back through `index.html` (already wired in `index.html`).
+
+If you fork or rename the repo, update:
+- `homepage` in `package.json`
+- `base` in `vite.config.ts` (`'/<repo-name>/'`)
+- `pathSegmentsToKeep` in `public/404.html` (likely stays at `1`)
+
+## Folder structure
+
+```
+src/
+  components/
+    ui/         shadcn primitives
+    common/     Container, SectionTitle, EmptyState, Logo, ThemeToggle, ProtectedRoute, ErrorBoundary
+    features/   Banner, ChefCard, JobCard, CategoryGrid, PlatformDemo, Testimonials, Filters
+    layout/     Header, Footer, MainLayout
+  pages/        Home, Chefs (list/detail), Jobs (list/detail/new), Auth (login/register), Dashboard, About, Contact, NotFound
+  data/seed/    Typed seed arrays
+  services/mockApi/  chefsApi, jobsApi, authApi, applicationsApi, contactApi
+  store/        Slices, selectors, persist config
+  hooks/        useBreakpoint, useDebounce, useAuth
+  lib/          utils.ts (cn), format.ts (currency/time)
+  theme/        ThemeProvider, tokens
+  types/        Domain types
+  test/         Vitest setup + a few tests
+```
+
+## License
+
+MIT — feel free to use any of this as a starting point.
